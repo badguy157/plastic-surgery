@@ -680,6 +680,44 @@ footer p {
   border-radius: 2px;
 }
 
+/* Demo Banner */
+.demo-banner {
+  background-color: #0a0a14;
+  padding: 0.5rem 1rem;
+  text-align: center;
+  font-size: 0.8rem;
+  color: #a0a0a0;
+}
+
+.demo-banner a {
+  color: var(--accent);
+}
+
+.demo-banner a:hover {
+  color: var(--accent-hover);
+}
+
+/* Demo Note in Footer */
+.demo-note {
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid #3A2647;
+  font-size: 0.85rem;
+  color: #808080;
+}
+
+.demo-note p {
+  margin-bottom: 0.5rem;
+}
+
+.demo-note a {
+  color: #808080;
+}
+
+.demo-note a:hover {
+  color: var(--accent);
+}
+
 /* Responsive */
 @media (max-width: 992px) {
   .grid-4,
