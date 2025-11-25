@@ -152,7 +152,7 @@ section:nth-child(even) {
 }
 
 .card ul li::before {
-  content: "✓";
+  content: "\2713";
   color: #2a7fba;
   position: absolute;
   left: 0;
@@ -403,7 +403,7 @@ section:nth-child(even) {
 }
 
 .fit-section ul li::before {
-  content: "→";
+  content: "\2192";
   color: #2a7fba;
   position: absolute;
   left: 0;
