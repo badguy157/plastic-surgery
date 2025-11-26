@@ -868,8 +868,7 @@ footer p {
 }
 
 .fit-column ul li {
-  padding: 0.5rem 0;
-  padding-left: 1.5rem;
+  padding: 0.5rem 0 0.5rem 1.5rem;
   position: relative;
   color: var(--text-secondary);
 }
@@ -906,7 +905,6 @@ footer p {
 .theme-plastic .faq-question {
   color: var(--text-primary);
   font-size: 1.1rem;
-  cursor: pointer;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -917,6 +915,8 @@ footer p {
   font-size: 1.25rem;
   color: var(--accent);
   font-weight: 400;
+  flex-shrink: 0;
+  margin-left: 1rem;
 }
 
 .theme-plastic .faq-answer {
