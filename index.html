@@ -265,51 +265,51 @@
     <div class="container">
       <h2 class="section-title">Common questions</h2>
       <div class="faq-list">
-        <div class="faq-item">
-          <div class="faq-question">How long is the consult?</div>
-          <div class="faq-answer">
+        <div class="faq-item faq-item--open">
+          <button type="button" class="faq-question" aria-expanded="true" aria-controls="faq-answer-1">How long is the consult?</button>
+          <div class="faq-answer" id="faq-answer-1" aria-hidden="false">
             About 30 to 45 minutes. We take time to listen and answer all your questions.
           </div>
         </div>
         <div class="faq-item">
-          <div class="faq-question">Can we talk about more than one procedure?</div>
-          <div class="faq-answer">
+          <button type="button" class="faq-question" aria-expanded="false" aria-controls="faq-answer-2">Can we talk about more than one procedure?</button>
+          <div class="faq-answer" id="faq-answer-2" aria-hidden="true">
             Yes, many patients ask about a few options. We'll help you decide what makes sense.
           </div>
         </div>
         <div class="faq-item">
-          <div class="faq-question">How long is recovery?</div>
-          <div class="faq-answer">
+          <button type="button" class="faq-question" aria-expanded="false" aria-controls="faq-answer-3">How long is recovery?</button>
+          <div class="faq-answer" id="faq-answer-3" aria-hidden="true">
             It depends on the procedure. Most people take 1 to 2 weeks off work. We give you a clear recovery plan.
           </div>
         </div>
         <div class="faq-item">
-          <div class="faq-question">How much does it cost?</div>
-          <div class="faq-answer">
+          <button type="button" class="faq-question" aria-expanded="false" aria-controls="faq-answer-4">How much does it cost?</button>
+          <div class="faq-answer" id="faq-answer-4" aria-hidden="true">
             Costs vary. Face lifts range from $8,000 to $15,000; body contouring starts around $5,000. You'll get a clear quote at your consult.
           </div>
         </div>
         <div class="faq-item">
-          <div class="faq-question">Is the surgery painful?</div>
-          <div class="faq-answer">
+          <button type="button" class="faq-question" aria-expanded="false" aria-controls="faq-answer-5">Is the surgery painful?</button>
+          <div class="faq-answer" id="faq-answer-5" aria-hidden="true">
             You won't feel pain during surgery. Afterward, there's some soreness, but we give you medicine to stay comfortable.
           </div>
         </div>
         <div class="faq-item">
-          <div class="faq-question">Will people know I had surgery?</div>
-          <div class="faq-answer">
+          <button type="button" class="faq-question" aria-expanded="false" aria-controls="faq-answer-6">Will people know I had surgery?</button>
+          <div class="faq-answer" id="faq-answer-6" aria-hidden="true">
             Our goal is natural results. Most patients say friends notice they look "refreshed" but can't tell why.
           </div>
         </div>
         <div class="faq-item">
-          <div class="faq-question">What if I change my mind?</div>
-          <div class="faq-answer">
+          <button type="button" class="faq-question" aria-expanded="false" aria-controls="faq-answer-7">What if I change my mind?</button>
+          <div class="faq-answer" id="faq-answer-7" aria-hidden="true">
             No pressure. You can take your time. There's no obligation to book surgery after your consult.
           </div>
         </div>
         <div class="faq-item">
-          <div class="faq-question">Do you offer payment plans?</div>
-          <div class="faq-answer">
+          <button type="button" class="faq-question" aria-expanded="false" aria-controls="faq-answer-8">Do you offer payment plans?</button>
+          <div class="faq-answer" id="faq-answer-8" aria-hidden="true">
             Yes. We work with financing partners so you can pay over time. Ask us at your consult.
           </div>
         </div>
@@ -345,6 +345,43 @@
         el.addEventListener('click', function(event) {
           event.preventDefault();
           window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+      });
+
+      /* FAQ accordion - common questions */
+      var faqButtons = document.querySelectorAll('.faq-question');
+      
+      faqButtons.forEach(function(button) {
+        button.addEventListener('click', function() {
+          var faqItem = this.parentElement;
+          var isOpen = faqItem.classList.contains('faq-item--open');
+          var answer = document.getElementById(this.getAttribute('aria-controls'));
+          
+          // Close all other open items (single-open accordion behavior)
+          document.querySelectorAll('.faq-item--open').forEach(function(openItem) {
+            if (openItem !== faqItem) {
+              openItem.classList.remove('faq-item--open');
+              var openButton = openItem.querySelector('.faq-question');
+              if (openButton) {
+                var openAnswer = document.getElementById(openButton.getAttribute('aria-controls'));
+                openButton.setAttribute('aria-expanded', 'false');
+                if (openAnswer) {
+                  openAnswer.setAttribute('aria-hidden', 'true');
+                }
+              }
+            }
+          });
+          
+          // Toggle current item
+          if (isOpen) {
+            faqItem.classList.remove('faq-item--open');
+            this.setAttribute('aria-expanded', 'false');
+            answer.setAttribute('aria-hidden', 'true');
+          } else {
+            faqItem.classList.add('faq-item--open');
+            this.setAttribute('aria-expanded', 'true');
+            answer.setAttribute('aria-hidden', 'false');
+          }
         });
       });
     });
