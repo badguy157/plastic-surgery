@@ -900,7 +900,7 @@ footer p {
   font-style: italic;
 }
 
-/* FAQ section - Accordion style */
+/* FAQ Section - Accordion style */
 .theme-plastic .faq-item {
   border-bottom-color: var(--accent-soft);
   padding: 1.5rem 0;
@@ -912,6 +912,24 @@ footer p {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  width: 100%;
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+  font-family: inherit;
+  font-weight: 600;
+  text-align: left;
+  cursor: pointer;
+}
+
+.theme-plastic .faq-question:hover {
+  color: var(--accent);
+}
+
+.theme-plastic .faq-question:focus {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
 }
 
 .theme-plastic .faq-question::after {
@@ -923,11 +941,20 @@ footer p {
   margin-left: 1rem;
 }
 
+.theme-plastic .faq-item--open .faq-question::after {
+  content: "–";
+}
+
 .theme-plastic .faq-answer {
   color: var(--text-muted);
   margin-top: 0.75rem;
   padding-left: 0;
   line-height: 1.7;
+  display: none;
+}
+
+.theme-plastic .faq-item--open .faq-answer {
+  display: block;
 }
 
 /* CTA strip with softer gradient */
