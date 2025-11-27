@@ -465,6 +465,7 @@ footer p {
   --accent: #9B7BC7;
   --accent-soft: #2D3A4A;
   --accent-hover: #B59AD8;
+  --accent-hover-dark: #8A6AB8;
   --bg-dark: #1C2833;
   --bg-darker: #17212B;
   --bg-light: #243342;
@@ -472,6 +473,7 @@ footer p {
   --text-primary: #F4F6F7;
   --text-secondary: #BDC3C7;
   --text-muted: #95A5A6;
+  --text-on-accent: #F9FAFB;
 }
 
 /* Dark background for plastic theme - warmer navy/charcoal */
@@ -502,8 +504,10 @@ footer p {
   font-weight: 600;
 }
 
-.theme-plastic .btn-primary:hover {
-  background-color: var(--accent-hover);
+.theme-plastic .btn-primary:hover,
+.theme-plastic .btn-primary:focus-visible {
+  background-color: var(--accent-hover-dark);
+  color: var(--text-on-accent);
 }
 
 /* Secondary buttons - ghost/outline style */
@@ -948,8 +952,10 @@ footer p {
   padding: 1rem 2.5rem;
 }
 
-.theme-plastic .cta-strip .btn-primary:hover {
-  background: var(--accent-hover);
+.theme-plastic .cta-strip .btn-primary:hover,
+.theme-plastic .cta-strip .btn-primary:focus-visible {
+  background: var(--accent-hover-dark);
+  color: var(--text-on-accent);
 }
 
 /* Footer */
