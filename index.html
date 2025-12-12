@@ -17,6 +17,29 @@
   <header>
     <div class="container header-content">
       <div class="logo"><a href="#" class="brand-link js-scroll-top">Riverside Plastic Surgery</a></div>
+      
+      <!-- Desktop Nav (hidden on mobile) -->
+      <nav class="desktop-nav">
+        <ul>
+          <li><a href="#procedures">Procedures</a></li>
+          <li><a href="#why-us">Why Us</a></li>
+          <li><a href="#process">Process</a></li>
+          <li><a href="#results">Results</a></li>
+          <li><a href="#faq">FAQ</a></li>
+          <li><a href="#book" class="btn btn-primary">Book Consult</a></li>
+        </ul>
+      </nav>
+      
+      <!-- Hamburger Button (shown on mobile only) -->
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+    </div>
+    
+    <!-- Mobile Menu Panel -->
+    <div class="mobile-menu" id="mobile-menu">
       <nav>
         <ul>
           <li><a href="#procedures">Procedures</a></li>
@@ -353,6 +376,31 @@
 
   <script>
     document.addEventListener('DOMContentLoaded', function() {
+      /* Mobile menu toggle */
+      var hamburger = document.getElementById('hamburger');
+      var mobileMenu = document.getElementById('mobile-menu');
+      
+      hamburger.addEventListener('click', function() {
+        var isOpen = mobileMenu.classList.contains('mobile-menu--open');
+        
+        if (isOpen) {
+          mobileMenu.classList.remove('mobile-menu--open');
+          hamburger.setAttribute('aria-expanded', 'false');
+        } else {
+          mobileMenu.classList.add('mobile-menu--open');
+          hamburger.setAttribute('aria-expanded', 'true');
+        }
+      });
+      
+      // Close mobile menu when clicking on a link
+      var mobileLinks = mobileMenu.querySelectorAll('a');
+      mobileLinks.forEach(function(link) {
+        link.addEventListener('click', function() {
+          mobileMenu.classList.remove('mobile-menu--open');
+          hamburger.setAttribute('aria-expanded', 'false');
+        });
+      });
+      
       document.querySelectorAll('.js-scroll-top').forEach(function(el) {
         el.addEventListener('click', function(event) {
           event.preventDefault();
