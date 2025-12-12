@@ -461,6 +461,11 @@ header {
   color: #1a3a5c;
 }
 
+/* Desktop Nav - Hidden on mobile */
+.desktop-nav {
+  display: none;
+}
+
 nav ul {
   display: flex;
   list-style: none;
@@ -474,6 +479,93 @@ nav a {
 
 nav a:hover {
   color: #2a7fba;
+}
+
+/* Hamburger Button - Shown on mobile only */
+.hamburger {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  z-index: 101;
+}
+
+.hamburger-line {
+  width: 24px;
+  height: 2px;
+  background-color: #1a3a5c;
+  transition: all 0.3s ease;
+}
+
+/* Mobile Menu Panel */
+.mobile-menu {
+  display: none;
+  background: #fff;
+  border-bottom: 1px solid #e0e8ed;
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height 0.3s ease;
+}
+
+.mobile-menu--open {
+  display: block;
+  max-height: 500px;
+}
+
+.mobile-menu nav ul {
+  flex-direction: column;
+  gap: 0;
+  padding: 0;
+}
+
+.mobile-menu nav ul li {
+  border-bottom: 1px solid #e0e8ed;
+}
+
+.mobile-menu nav ul li:last-child {
+  border-bottom: none;
+}
+
+.mobile-menu nav ul li a {
+  display: block;
+  padding: 1rem 1.5rem;
+  width: 100%;
+  text-align: left;
+}
+
+.mobile-menu nav ul li a.btn {
+  margin: 1rem 1.5rem;
+  text-align: center;
+  width: calc(100% - 3rem);
+}
+
+/* Desktop styles (md+) */
+@media (min-width: 768px) {
+  header {
+    padding: 1rem 0; /* Keep existing padding on desktop */
+  }
+  
+  .desktop-nav {
+    display: block;
+  }
+  
+  .hamburger {
+    display: none;
+  }
+  
+  .mobile-menu {
+    display: none !important;
+  }
+}
+
+/* Mobile styles */
+@media (max-width: 767px) {
+  header {
+    padding: 0.75rem 0; /* Reduced padding on mobile (py-3) */
+  }
 }
 
 /* Footer */
@@ -1475,17 +1567,6 @@ footer p {
   
   .hero-buttons .btn {
     width: 100%;
-  }
-  
-  .header-content {
-    flex-direction: column;
-    gap: 1rem;
-  }
-  
-  nav ul {
-    gap: 1rem;
-    flex-wrap: wrap;
-    justify-content: center;
   }
   
   .fit-card {
