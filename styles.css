@@ -674,6 +674,30 @@ footer p {
   opacity: 0.8;
 }
 
+.surgeon-photo-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
+.surgeon-photo-circle {
+  height: 7rem;
+  width: 7rem;
+  overflow: hidden;
+  border-radius: 9999px;
+  border: 1px solid rgba(71, 85, 105, 0.6);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.4), 0 2px 4px -1px rgba(0, 0, 0, 0.3);
+  background: rgba(15, 23, 42, 0.6);
+}
+
+.surgeon-photo {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
 .doctor-info {
   display: flex;
   flex-direction: column;
