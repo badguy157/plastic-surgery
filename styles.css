@@ -657,7 +657,7 @@ footer p {
   position: absolute;
   top: 1rem;
   left: 50%;
-  transform: translateX(-50%);
+  transform: translateX(-50%) translateY(0.625rem); /* Move pill down to overlap avatar */
   background: var(--accent);
   color: var(--text-on-accent);
   padding: 0.375rem 1rem;
