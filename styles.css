@@ -556,8 +556,9 @@ nav a:hover {
     display: none;
   }
   
-  .mobile-menu {
-    display: none !important;
+  .mobile-menu,
+  .mobile-menu.mobile-menu--open {
+    display: none;
   }
 }
 
