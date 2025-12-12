@@ -901,21 +901,22 @@ footer p {
   position: relative;
 }
 
-.hero-result-card .result-image {
-  background: linear-gradient(135deg, var(--bg-light) 0%, var(--accent-soft) 100%);
+.hero-result-card .result-image-container {
   border-radius: 16px;
   height: 280px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--text-muted);
-  font-weight: 500;
-  font-size: 1.125rem;
   border: 2px solid rgba(139, 122, 184, 0.15);
   position: relative;
+  overflow: hidden;
 }
 
-.hero-result-card > div:first-child .result-image::before {
+.hero-result-card .result-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.hero-result-card > div:first-child .result-image-container::before {
   content: "Before";
   position: absolute;
   top: 1rem;
@@ -928,9 +929,10 @@ footer p {
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.05em;
+  z-index: 10;
 }
 
-.hero-result-card > div:last-child .result-image::before {
+.hero-result-card > div:last-child .result-image-container::before {
   content: "After";
   position: absolute;
   top: 1rem;
@@ -943,6 +945,7 @@ footer p {
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.05em;
+  z-index: 10;
 }
 
 .hero-result-card .result-label {

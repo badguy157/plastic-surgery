@@ -183,11 +183,15 @@
       <!-- Hero Before/After Card -->
       <div class="hero-result-card">
         <div>
-          <div class="result-image" id="beforeImage">Before</div>
+          <div class="result-image-container">
+            <img id="beforeImage" src="/images/plastic/nose-before.jpg" alt="Nose Reshaping (Before)" class="result-image">
+          </div>
           <p class="result-label" id="beforeLabel">Nose Reshaping (Before)</p>
         </div>
         <div>
-          <div class="result-image" id="afterImage">After</div>
+          <div class="result-image-container">
+            <img id="afterImage" src="/images/plastic/nose-after.jpg" alt="Nose Reshaping (After)" class="result-image">
+          </div>
           <p class="result-label" id="afterLabel">Nose Reshaping (After)</p>
         </div>
       </div>
@@ -389,6 +393,8 @@
           title: 'Nose lift',
           beforeLabel: 'Nose Reshaping (Before)',
           afterLabel: 'Nose Reshaping (After)',
+          beforeImage: '/images/plastic/nose-before.jpg',
+          afterImage: '/images/plastic/nose-after.jpg',
           caption: 'Refined profile and smoother bridge.'
         },
         breast: {
@@ -396,6 +402,8 @@
           title: 'Breast reshaping',
           beforeLabel: 'Breast Surgery (Before)',
           afterLabel: 'Breast Surgery (After)',
+          beforeImage: '/images/plastic/body-before.jpg',
+          afterImage: '/images/plastic/body-after.jpg',
           caption: 'Lifted, more symmetrical shape with natural proportions.'
         },
         tummy: {
@@ -403,6 +411,8 @@
           title: 'Abdomen contour',
           beforeLabel: 'Tummy Tuck (Before)',
           afterLabel: 'Tummy Tuck (After)',
+          beforeImage: '/images/plastic/body-before.jpg',
+          afterImage: '/images/plastic/body-after.jpg',
           caption: 'Flatter, smoother abdomen and more defined waistline.'
         },
         body: {
@@ -410,6 +420,8 @@
           title: 'Body contouring',
           beforeLabel: 'Body Contouring (Before)',
           afterLabel: 'Body Contouring (After)',
+          beforeImage: '/images/plastic/body-before.jpg',
+          afterImage: '/images/plastic/body-after.jpg',
           caption: 'Targeted contouring to smooth and shape the midsection.'
         },
         neck: {
@@ -417,6 +429,8 @@
           title: 'Neck and jawline',
           beforeLabel: 'Neck Lift (Before)',
           afterLabel: 'Neck Lift (After)',
+          beforeImage: '/images/plastic/neck-before.jpg',
+          afterImage: '/images/plastic/neck-after.jpg',
           caption: 'Firmer jawline and smoother neck contour.'
         }
       };
@@ -424,6 +438,18 @@
       function updateProcedure(procedureId) {
         activeProcedure = procedureId;
         var current = procedures[procedureId];
+        
+        // Update the before/after images
+        var beforeImg = document.getElementById('beforeImage');
+        var afterImg = document.getElementById('afterImage');
+        if (beforeImg && beforeImg.tagName === 'IMG') {
+          beforeImg.src = current.beforeImage;
+          beforeImg.alt = current.beforeLabel;
+        }
+        if (afterImg && afterImg.tagName === 'IMG') {
+          afterImg.src = current.afterImage;
+          afterImg.alt = current.afterLabel;
+        }
         
         // Update the before/after labels
         document.getElementById('beforeLabel').textContent = current.beforeLabel;
