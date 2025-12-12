@@ -681,19 +681,32 @@ footer p {
   margin-bottom: 1rem;
 }
 
-.surgeon-photo-circle {
-  height: 7rem;
-  width: 7rem;
-  overflow: hidden;
+.surgeon-photo-ring {
+  /* Mobile: w-32 h-32 (8rem = 32 * 0.25rem) */
+  height: 8rem;
+  width: 8rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   border-radius: 9999px;
-  border: 1px solid rgba(71, 85, 105, 0.6);
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.4), 0 2px 4px -1px rgba(0, 0, 0, 0.3);
-  background: rgba(15, 23, 42, 0.6);
+  /* Ring styling */
+  box-shadow: 0 0 0 2px rgba(241, 245, 249, 0.6), /* ring-2 ring-slate-100/60 */
+              0 0 0 6px rgba(15, 23, 42, 0.7), /* ring-offset-4 ring-offset-slate-900/70 */
+              0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); /* shadow-md */
+}
+
+@media (min-width: 1024px) {
+  .surgeon-photo-ring {
+    /* Desktop: w-40 h-40 (10rem = 40 * 0.25rem) */
+    height: 10rem;
+    width: 10rem;
+  }
 }
 
 .surgeon-photo {
   height: 100%;
   width: 100%;
+  border-radius: 9999px;
   object-fit: cover;
   object-position: center;
 }
@@ -702,7 +715,7 @@ footer p {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 1rem;
+  margin-top: 0.5rem;
 }
 
 .doctor-name {
@@ -715,7 +728,7 @@ footer p {
 .doctor-proof {
   font-size: 0.875rem;
   color: var(--text-muted);
-  margin: 0.25rem 0 0 0;
+  margin: 0.125rem 0 0 0;
 }
 
 .hero-image-caption {
