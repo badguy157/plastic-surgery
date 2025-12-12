@@ -877,7 +877,8 @@ footer p {
 }
 
 .theme-plastic .gallery-item:hover,
-.theme-plastic .gallery-item:first-child {
+.theme-plastic .gallery-item:first-child,
+.theme-plastic .gallery-item.active {
   border-color: var(--accent);
   background: var(--accent);
   color: var(--text-on-accent);
