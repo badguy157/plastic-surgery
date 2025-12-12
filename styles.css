@@ -654,10 +654,10 @@ footer p {
 
 .hero-image-placeholder::before {
   content: "Board-certified surgeon";
-  position: absolute;
-  top: 1rem;
-  left: 50%;
-  transform: translateX(-50%) translateY(0.625rem); /* Move pill down to overlap avatar */
+  /* Mobile: normal positioning, no overlap */
+  position: relative;
+  display: inline-block;
+  margin-bottom: 0.75rem;
   background: var(--accent);
   color: var(--text-on-accent);
   padding: 0.375rem 1rem;
@@ -666,6 +666,17 @@ footer p {
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.05em;
+}
+
+/* Desktop (md+): reintroduce overlap */
+@media (min-width: 768px) {
+  .hero-image-placeholder::before {
+    position: absolute;
+    top: 1rem;
+    left: 50%;
+    transform: translateX(-50%) translateY(0.625rem);
+    margin-bottom: 0;
+  }
 }
 
 .hero-image-placeholder .placeholder-icon {
@@ -682,9 +693,9 @@ footer p {
 }
 
 .surgeon-photo-ring {
-  /* Mobile: w-32 h-32 (8rem = 32 * 0.25rem) */
-  height: 8rem;
-  width: 8rem;
+  /* Mobile: w-28 h-28 (7rem = 28 * 0.25rem) */
+  height: 7rem;
+  width: 7rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -693,6 +704,14 @@ footer p {
   box-shadow: 0 0 0 2px rgba(241, 245, 249, 0.6), /* ring-2 ring-slate-100/60 */
               0 0 0 6px rgba(15, 23, 42, 0.7), /* ring-offset-4 ring-offset-slate-900/70 */
               0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); /* shadow-md */
+}
+
+/* Desktop (md+): w-36 h-36 */
+@media (min-width: 768px) {
+  .surgeon-photo-ring {
+    height: 9rem; /* 36 * 0.25rem */
+    width: 9rem;
+  }
 }
 
 @media (min-width: 1024px) {
