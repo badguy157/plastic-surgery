@@ -512,7 +512,7 @@ nav a:hover {
 
 .mobile-menu--open {
   display: block;
-  max-height: 500px;
+  max-height: 100vh;
 }
 
 .mobile-menu nav ul {
@@ -562,7 +562,7 @@ nav a:hover {
 }
 
 /* Mobile styles */
-@media (max-width: 767px) {
+@media (max-width: 767.98px) {
   header {
     padding: 0.75rem 0; /* Reduced padding on mobile (py-3) */
   }
