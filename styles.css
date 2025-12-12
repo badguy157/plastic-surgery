@@ -544,10 +544,6 @@ nav a:hover {
 
 /* Desktop styles (md+) */
 @media (min-width: 768px) {
-  header {
-    padding: 1rem 0; /* Keep existing padding on desktop */
-  }
-  
   .desktop-nav {
     display: block;
   }
