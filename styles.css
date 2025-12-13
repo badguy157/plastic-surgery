@@ -1590,7 +1590,7 @@ footer p {
   left: 1rem;
   right: 1rem;
   z-index: 30;
-  display: none; /* Hidden by default, shown on mobile via JS */
+  display: none; /* Hidden by default, shown only on mobile via media query */
 }
 
 .mobile-sticky-btn {
@@ -1605,17 +1605,10 @@ footer p {
   display: block;
 }
 
-/* Show on mobile only (below 768px), hide on desktop */
+/* Show on mobile only (below 768px) */
 @media (max-width: 767.98px) {
   .mobile-sticky-cta {
     display: block;
-  }
-}
-
-/* Ensure it's hidden on desktop */
-@media (min-width: 768px) {
-  .mobile-sticky-cta {
-    display: none !important;
   }
 }
 
