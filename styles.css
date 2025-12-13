@@ -1590,7 +1590,7 @@ footer p {
   left: 1rem;
   right: 1rem;
   z-index: 30;
-  display: none; /* Hidden by default, shown only on mobile via media query */
+  display: none; /* Hidden by default; shown on mobile via media query and managed by JS for menu state */
 }
 
 .mobile-sticky-btn {
