@@ -53,6 +53,11 @@
     </div>
   </header>
 
+  <!-- Mobile Sticky CTA (bottom fixed, visible only on mobile when menu is closed) -->
+  <div id="mobile-sticky-cta" class="mobile-sticky-cta">
+    <a href="#book" class="btn btn-primary mobile-sticky-btn">Book Consult</a>
+  </div>
+
   <!-- Hero Section -->
   <section class="hero">
     <div class="container">
@@ -379,6 +384,19 @@
       /* Mobile menu toggle */
       var hamburger = document.getElementById('hamburger');
       var mobileMenu = document.getElementById('mobile-menu');
+      var mobileStickyCta = document.getElementById('mobile-sticky-cta');
+      
+      function updateMobileCtaVisibility() {
+        var isMenuOpen = mobileMenu.classList.contains('mobile-menu--open');
+        if (mobileStickyCta) {
+          if (isMenuOpen) {
+            mobileStickyCta.style.display = 'none';
+          } else {
+            // Remove inline style; visibility then depends on CSS media query
+            mobileStickyCta.style.display = '';
+          }
+        }
+      }
       
       hamburger.addEventListener('click', function() {
         var isOpen = mobileMenu.classList.contains('mobile-menu--open');
@@ -390,6 +408,9 @@
           mobileMenu.classList.add('mobile-menu--open');
           hamburger.setAttribute('aria-expanded', 'true');
         }
+        
+        // Update sticky CTA visibility
+        updateMobileCtaVisibility();
       });
       
       // Close mobile menu when clicking on a link
@@ -398,6 +419,8 @@
         link.addEventListener('click', function() {
           mobileMenu.classList.remove('mobile-menu--open');
           hamburger.setAttribute('aria-expanded', 'false');
+          // Update sticky CTA visibility
+          updateMobileCtaVisibility();
         });
       });
       
