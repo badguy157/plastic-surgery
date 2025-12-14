@@ -59,7 +59,7 @@
   </div>
 
   <!-- Hero Section -->
-  <section class="hero">
+  <section class="hero" id="hero">
     <div aria-hidden="true" class="hero-gradient-overlay"></div>
     <div class="relative container">
       <div class="hero-grid">
@@ -397,6 +397,27 @@
             mobileStickyCta.style.display = '';
           }
         }
+      }
+      
+      /* IntersectionObserver for mobile sticky CTA - hide when hero is visible */
+      var heroSection = document.getElementById('hero');
+      
+      if (heroSection && mobileStickyCta) {
+        var observer = new IntersectionObserver(function(entries) {
+          entries.forEach(function(entry) {
+            // If hero is intersecting (visible in viewport), hide sticky CTA
+            // If hero is not intersecting (scrolled past), show sticky CTA
+            if (entry.isIntersecting) {
+              mobileStickyCta.classList.add('hidden-by-hero');
+            } else {
+              mobileStickyCta.classList.remove('hidden-by-hero');
+            }
+          });
+        }, {
+          threshold: 0 // Trigger as soon as any part enters/leaves viewport
+        });
+        
+        observer.observe(heroSection);
       }
       
       hamburger.addEventListener('click', function() {

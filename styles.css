@@ -1626,6 +1626,11 @@ footer p {
   }
 }
 
+/* Hide sticky CTA when hero is visible */
+.mobile-sticky-cta.hidden-by-hero {
+  display: none !important;
+}
+
 /* Theme-specific styling for mobile sticky button */
 .theme-plastic .mobile-sticky-cta .mobile-sticky-btn {
   background-color: var(--accent);
